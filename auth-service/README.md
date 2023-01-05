@@ -19,33 +19,3 @@
 ## Overview
 
 This is a common micro service which will be used across the Omron application related to Authentication
-
-## Sample API Usage
-
-| **Method** | **Request Path** | **Request Body** | **Queue Action** | **Description** |
-|:-------------|:----------------|-----------------|-----------------|-----------------|
-|GET|`/`| |`sqs::ReceiveMessage`|Retrieves a message from the queue.|
-|POST|`/`| `{ "data": "Hello World!" }` |`sqs::SendMessage`|Delivers a message to the queue.|
-|DELETE|`/message?receiptHandle=[value]`||`sqs::DeleteMessage`|Deletes a specified message from the queue|
-
-## Default settings
-
-Out of the box implementation of the Construct without any override will set the following defaults:
-
-### Amazon API Gateway
-* Deploy an edge-optimized API endpoint
-* Enable CloudWatch logging for API Gateway
-* Configure least privilege access IAM role for API Gateway
-* Set the default authorizationType for all API methods to IAM
-* Enable X-Ray Tracing
-
-### Amazon SQS Queue
-* Deploy SQS dead-letter queue for the source SQS Queue
-* Enable server-side encryption for source SQS Queue using AWS Managed KMS Key
-* Enforce encryption of data in transit
-
-## Architecture
-![Architecture Diagram](architecture.png)
-
-***
-&copy; Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
